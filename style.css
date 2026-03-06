@@ -49,8 +49,25 @@ color:white;
 }
 
 .chart-box{
-background:white;
-padding:20px;
-margin-top:30px;
-border-radius:10px;
+width:600px;
+margin:40px auto;
+}
+
+#chartLegend{
+width:600px;
+margin:auto;
+font-size:14px;
+}
+
+.legend-item{
+display:flex;
+align-items:center;
+margin:5px 0;
+}
+
+.legend-color{
+width:16px;
+height:16px;
+margin-right:8px;
+border-radius:3px;
 }
