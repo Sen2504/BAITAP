@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Excel Dashboard</title>
+
+<link rel="stylesheet" href="style.css">
+
+<script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<header>
+<h1>Excel Dashboard</h1>
+<p>Upload và phân tích dữ liệu Excel</p>
+</header>
+
+<div class="upload-box">
+
+<input type="file" id="excelFile" accept=".xls,.xlsx">
+
+<button onclick="handleFile()">Tải lên</button>
+
+</div>
+
+<div id="tableArea"></div>
+
+<div class="chart-box">
+<canvas id="chart"></canvas>
+</div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
