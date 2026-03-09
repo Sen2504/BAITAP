@@ -1,83 +1,98 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Excel Dashboard</title>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
 
-<title>Excel Dashboard</title>
-
-<link rel="stylesheet" href="style.css">
-
-<script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
-
-<script src="script.js"></script>
-
+  <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+  <script src="script.js"></script>
 </head>
-
 <body>
 
-<div class="container">
+  <div class="page-shell">
 
-<header>
-<h1>Excel Dashboard</h1>
-<p>Upload và phân tích dữ liệu Excel</p>
-</header>
+    <header class="hero">
+      <div class="hero-content">
+        <div class="hero-badge">Dashboard phân tích dữ liệu</div>
+        <h1>Excel Dashboard</h1>
+        <p>Upload file Excel và trực quan hóa dữ liệu bệnh nhân bằng bảng và biểu đồ</p>
 
-<div class="upload-box">
+        <div class="upload-box">
+          <input type="file" id="excelFile" accept=".xls,.xlsx">
+          <button onclick="handleFile()">Tải lên</button>
+        </div>
+      </div>
+    </header>
 
-<input type="file" id="excelFile" accept=".xls,.xlsx">
+    <main class="container">
 
-<button onclick="handleFile()">Tải lên</button>
+      <section class="table-section">
+        <div class="section-title">
+          <h2>Bảng dữ liệu</h2>
+          <span>Xem dữ liệu sau khi đọc từ file Excel</span>
+        </div>
+        <div id="tableArea"></div>
+      </section>
 
-</div>
+      <section class="dashboard-section">
+        <div class="section-title">
+          <h2>Biểu đồ phân tích</h2>
+          <span>Thống kê nhanh theo từng khoa</span>
+        </div>
 
-<div id="tableArea"></div>
+        <div class="dashboard-grid">
 
-<div class="dashboard-grid">
+          <div class="chart-card">
+            <div class="card-head">
+              <h3>Biểu đồ bệnh nhân điều trị nội trú</h3>
+            </div>
+            <div class="chart-wrapper">
+              <canvas id="chart"></canvas>
+            </div>
+            <div id="chartLegend" class="chart-legend"></div>
+          </div>
 
-  <div class="chart-card">
-    <h3>Biểu đồ bệnh nhân điều trị nội trú</h3>
-    <div class="chart-wrapper">
-      <canvas id="chart"></canvas>
-    </div>
-    <div id="chartLegend" class="chart-legend"></div>
+          <div class="chart-card">
+            <div class="card-head">
+              <h3>Biểu đồ bệnh nhân tử vong</h3>
+            </div>
+            <div class="chart-wrapper">
+              <canvas id="chart2"></canvas>
+            </div>
+            <div id="chartLegend2" class="chart-legend"></div>
+          </div>
+
+          <div class="chart-card chart-card-wide">
+            <div class="chart-header">
+              <h3>Biểu đồ tăng trưởng số bệnh nhân đầu kỳ và cuối kỳ</h3>
+              <div id="chartLegend3" class="chart-legend"></div>
+            </div>
+            <div class="chart-wrapper chart-wrapper-bar">
+              <canvas id="chart3"></canvas>
+            </div>
+          </div>
+
+          <div class="chart-card">
+            <div class="card-head">
+              <h3>Biểu đồ 4</h3>
+            </div>
+            <div class="chart-wrapper">
+              <canvas id="chart4"></canvas>
+            </div>
+            <div id="chartLegend4" class="chart-legend"></div>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+
   </div>
-
-  <div class="chart-card">
-    <h3>Biểu đồ bệnh nhân tử vong</h3>
-    <div class="chart-wrapper">
-      <canvas id="chart2"></canvas>
-    </div>
-    <div id="chartLegend2" class="chart-legend"></div>
-  </div>
-
-  <div class="chart-card">
-    <div class="chart-header">
-      <h3>Biểu đồ tăng trưởng số bệnh nhân đầu kỳ và cuối kỳ</h3>
-      <div id="chartLegend3" class="chart-legend"></div>
-    </div>
-
-    <div class="chart-wrapper">
-      <canvas id="chart3"></canvas>
-    </div>
-  </div>
-
-  <div class="chart-card">
-    <h3>Biểu đồ 4</h3>
-    <div class="chart-wrapper">
-      <canvas id="chart4"></canvas>
-    </div>
-    <div id="chartLegend4" class="chart-legend"></div>
-  </div>
-
-</div>
-
-</div>
 
 </body>
 </html>

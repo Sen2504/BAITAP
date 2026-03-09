@@ -5,32 +5,86 @@
 body{
   font-family: Arial, sans-serif;
   margin: 0;
-  background: #f5f7fb;
+  background: linear-gradient(180deg, #eef4ff 0%, #f5f7fb 45%, #edf2f7 100%);
+  color: #1e293b;
 }
 
 .container{
   width: 95%;
   max-width: 1400px;
-  margin: 20px auto;
+  margin: 0 auto 30px auto;
+  padding: 0 0 20px 0;
 }
 
 header{
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
+  padding: 42px 20px 34px;
+  background: linear-gradient(135deg, #0f172a, #1d4ed8 60%, #38bdf8);
+  color: white;
+  border-bottom-left-radius: 28px;
+  border-bottom-right-radius: 28px;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.18);
+}
+
+header h1{
+  margin: 0;
+  font-size: 52px;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+header p{
+  margin: 14px 0 0 0;
+  font-size: 22px;
+  opacity: 0.95;
 }
 
 .upload-box{
   display: flex;
-  gap: 10px;
+  gap: 12px;
   align-items: center;
-  margin-bottom: 20px;
+  justify-content: center;
+  margin: 24px auto 20px auto;
+  width: fit-content;
+  max-width: calc(100% - 20px);
+  background: rgba(255,255,255,0.92);
+  padding: 14px 16px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.10);
+  flex-wrap: wrap;
+}
+
+.upload-box input[type="file"]{
+  background: white;
+  border: 1px solid #dbe2ea;
+  border-radius: 10px;
+  padding: 8px 10px;
+  font-size: 14px;
+}
+
+.upload-box button{
+  border: none;
+  background: #fbbf24;
+  color: #111827;
+  font-weight: 700;
+  padding: 10px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.2s ease;
+  box-shadow: 0 4px 12px rgba(251, 191, 36, 0.28);
+}
+
+.upload-box button:hover{
+  transform: translateY(-2px);
+  opacity: 0.96;
 }
 
 #tableArea{
   background: white;
-  padding: 15px;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  padding: 16px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
   margin-bottom: 20px;
   overflow-x: auto;
 }
@@ -38,6 +92,7 @@ header{
 #tableArea table{
   width: 100%;
   border-collapse: collapse;
+  min-width: 900px;
 }
 
 #tableArea th,
@@ -59,12 +114,13 @@ header{
 
 .chart-card{
   background: white;
-  border-radius: 14px;
+  border-radius: 18px;
   padding: 16px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
   min-height: 420px;
   display: flex;
   flex-direction: column;
+  border: 1px solid #eef2f7;
 }
 
 .chart-header{
@@ -79,12 +135,13 @@ header{
   margin: 0;
   font-size: 18px;
   flex: 1;
+  color: #0f172a;
 }
 
 .chart-wrapper{
   position: relative;
   width: 100%;
-  height: 340px; /* tăng chiều cao phần chart để bớt khoảng trắng dưới */
+  height: 340px;
 }
 
 .chart-wrapper canvas{
@@ -128,5 +185,26 @@ header{
 @media (max-width: 900px){
   .dashboard-grid{
     grid-template-columns: 1fr;
+  }
+
+  .chart-header{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  header{
+    padding: 34px 16px 28px;
+  }
+
+  header h1{
+    font-size: 38px;
+  }
+
+  header p{
+    font-size: 18px;
+  }
+
+  .upload-box{
+    width: calc(100% - 20px);
   }
 }
