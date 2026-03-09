@@ -26,7 +26,7 @@ let json = XLSX.utils.sheet_to_json(sheet,{header:1})
 
 json = fixMergedCells(json)
 json = removeColumn(json,3)
-json = removeColumn(json,13)
+json = removeColumn(json,12)
 
 function removeColumn(data,colIndex){
 
@@ -426,7 +426,7 @@ function createBarChart(data) {
 
     // sửa 2 index này theo đúng cột trong Excel
     let dauKy = parseFloat(row[4]) || 0
-    let cuoiKy = parseFloat(row[14]) || 0
+    let cuoiKy = parseFloat(row[13]) || 0
 
     if (
       khoa &&
